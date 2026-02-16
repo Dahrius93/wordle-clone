@@ -26,7 +26,7 @@ npm install
 4. Avvia l'app:
 
 ```bash
-npm start
+npm run dev
 ```
 
 5. Apri il browser su `http://localhost:3000`.
