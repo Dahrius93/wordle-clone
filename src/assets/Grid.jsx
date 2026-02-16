@@ -5,25 +5,37 @@ const Grid = ({ wordToGuess }) => {
   const [rowsValue, setRowsValue] = useState(['', '', '', '', '', ''])
   const [actualRow, setActualRow] = useState(0)
   const [isGameOver, setIsGameOver] = useState(false)
-  console.log(wordToGuess)
 
   const listener = (event) => {
-    if (event.key === 'Enter') {
-      if (rowsValue[actualRow] === wordToGuess) {
-        setIsGameOver(true)
-        return
-      }
-      setActualRow((prev) => prev + 1)
-    } else if (event.key === 'Backspace') {
+    const key = event.key.toLowerCase()
+
+    // Blocca numeri e simboli, permette solo lettere a-z
+    if (/^[a-z]$/.test(key)) {
+      setRowsValue((prev) => {
+        const newArr = [...prev]
+
+        // Aggiunge la lettera solo se non supera la lunghezza della parola
+        if (newArr[actualRow].length < wordToGuess.length) {
+          newArr[actualRow] += key
+        }
+
+        // Controllo automatico appena raggiunge la lunghezza
+        if (newArr[actualRow].length === wordToGuess.length) {
+          if (newArr[actualRow] === wordToGuess) {
+            setIsGameOver(true)
+          } else if (actualRow < prev.length - 1) {
+            setActualRow((prevRow) => prevRow + 1)
+          } else {
+            setIsGameOver(true)
+          }
+        }
+
+        return newArr
+      })
+    } else if (key === 'backspace') {
       setRowsValue((prev) => {
         const newArr = [...prev]
         newArr[actualRow] = newArr[actualRow].slice(0, -1)
-        return newArr
-      })
-    } else if (event.key.length === 1 && actualRow < 6) {
-      setRowsValue((prev) => {
-        const newArr = [...prev]
-        newArr[actualRow] += event.key
         return newArr
       })
     }
@@ -31,8 +43,6 @@ const Grid = ({ wordToGuess }) => {
 
   useEffect(() => {
     window.addEventListener('keydown', listener)
-    console.log(rowsValue)
-
     return () => {
       window.removeEventListener('keydown', listener)
     }
@@ -47,9 +57,9 @@ const Grid = ({ wordToGuess }) => {
         </div>
       ) : (
         <div className="grid">
-          {rowsValue.map((row, index) => {
-            return <Row key={index} row={row} wordToGuess={wordToGuess} />
-          })}
+          {rowsValue.map((row, index) => (
+            <Row key={index} row={row} wordToGuess={wordToGuess} />
+          ))}
         </div>
       )}
     </>
