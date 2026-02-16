@@ -1,16 +1,48 @@
-# React + Vite
+# React Wordle-clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Un piccolo clone di Wordle in Italiano realizzato con React.  
+Il gioco seleziona una parola casuale e ti permette di indovinare inserendo lettere.
 
-Currently, two official plugins are available:
+## Come usare
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Clona il repository:
 
-## React Compiler
+```bash
+git clone https://github.com/tuo-username/react-wordle.git
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+2. Entra nella cartella del progetto:
 
-## Expanding the ESLint configuration
+```bash
+cd react-wordle
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+3. Installa le dipendenze:
+
+```bash
+npm install
+```
+
+4. Avvia l'app:
+
+```bash
+npm start
+```
+
+5. Apri il browser su `http://localhost:3000`.
+
+## Come funziona
+
+- Inserisci lettere usando la tastiera.
+- Premi `Enter` per confermare la parola.
+- Premi `Backspace` per cancellare una lettera.
+- Le celle cambiano colore:
+
+  - **Verde** se la lettera è corretta.
+  - **Giallo** se la lettera è nella parola ma nella posizione sbagliata.
+  - **Grigio** se la lettera non è presente.
+
+## Note
+
+- L'app prende la lista delle parole da un file JSON remoto.
+- In caso di problemi di fetch, viene usata una parola di fallback (`pippo`).
