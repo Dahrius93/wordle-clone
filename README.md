@@ -29,12 +29,11 @@ npm install
 npm run dev
 ```
 
-5. Apri il browser su `http://localhost:3000`.
+5. Apri il browser su `http://localhost:5173`.
 
 ## Come funziona
 
 - Inserisci lettere usando la tastiera.
-- Premi `Enter` per confermare la parola.
 - Premi `Backspace` per cancellare una lettera.
 - Le celle cambiano colore:
 
@@ -46,3 +45,8 @@ npm run dev
 
 - L'app prende la lista delle parole da un file JSON remoto.
 - In caso di problemi di fetch, viene usata una parola di fallback (`pippo`).
+
+## Da implementare
+
+- fare aprire la tastiera su smartphone
+- migliorare UI su Grid

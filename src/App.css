@@ -46,27 +46,11 @@
 }
 
 .cell-right {
-  width: 50px; /* larghezza della cella */
-  height: 50px; /* altezza della cella */
-  border: 2px solid black;
   background-color: green;
-  display: flex; /* per centrare contenuto se vuoi */
-  align-items: center;
-  justify-content: center;
-  margin-left: 3px;
-  text-transform: uppercase;
 }
 
 .cell-near {
-  width: 50px; /* larghezza della cella */
-  height: 50px; /* altezza della cella */
-  border: 2px solid black;
   background-color: yellow;
-  display: flex; /* per centrare contenuto se vuoi */
-  align-items: center;
-  justify-content: center;
-  margin-left: 3px;
-  text-transform: uppercase;
 }
 
 .row {

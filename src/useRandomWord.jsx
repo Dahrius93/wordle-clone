@@ -11,12 +11,12 @@ export const useRandomWord = () => {
       try {
         const res = await fetch(WORDS_URL)
         if (!res.ok) {
-          throw new Error('Network response was not ok')
           setWord('pippo') // Fallback in caso di errore
+          throw new Error('Network response was not ok')
         }
         if (res.status === 404) {
-          throw new Error('File non trovato')
           setWord('pippo') // Fallback in caso di errore
+          throw new Error('File non trovato')
         }
         const data = await res.json()
         const randomWord = data[Math.floor(Math.random() * data.length)]
