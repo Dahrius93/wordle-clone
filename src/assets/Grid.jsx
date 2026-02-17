@@ -53,7 +53,8 @@ const Grid = ({ wordToGuess }) => {
       {isGameOver ? (
         <div className="game-over">
           <h1>Gioco terminato</h1>
-          <p>La parola era: {wordToGuess}</p>
+          <h3>La parola era: {wordToGuess}</h3>
+          <h5>Ricarica la pagina per ricominciare</h5>
         </div>
       ) : (
         <div className="grid">
