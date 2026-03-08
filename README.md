@@ -3,6 +3,8 @@
 Un piccolo clone di Wordle in Italiano realizzato con React.  
 Il gioco seleziona una parola casuale e ti permette di indovinare inserendo lettere.
 
+[delpoy progetto su Netlify](https://wordlee-clone.netlify.app/)
+
 ## Come usare
 
 1. Clona il repository:
@@ -36,7 +38,6 @@ npm run dev
 - Inserisci lettere usando la tastiera.
 - Premi `Backspace` per cancellare una lettera.
 - Le celle cambiano colore:
-
   - **Verde** se la lettera è corretta.
   - **Giallo** se la lettera è nella parola ma nella posizione sbagliata.
   - **Grigio** se la lettera non è presente.
